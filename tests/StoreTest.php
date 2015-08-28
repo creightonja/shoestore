@@ -15,7 +15,7 @@
     class StoreTest extends PHPUnit_Framework_TestCase {
 
         protected function tearDown() {
-            //Brand::deleteAll();
+            Brand::deleteAll();
             Store::deleteAll();
         }
 
@@ -182,73 +182,72 @@
             $this->assertEquals([$test_store2], Store::getAll());
         }
 
-        // function testAddBrand()
-        // {
-        //     //Arrange
-        //     $store_name = "Shoe Barn";
-        //     $id = null;
-        //     $test_store = new Store($store_name, $id);
-        //     $test_store->save();
-        //
-        //     $brand_name = "Nike";
-        //     $id2 = 2;
-        //     $test_brand = new Brand($brand_name, $id2);
-        //     $test_brand->save();
-        //
-        //     //Act
-        //     $test_store->addBrand($test_brand);
-        //     $result = $test_store->getBrands();
-        //
-        //     //Assert
-        //     $this->assertEquals([$test_brand], $result);
-        // }
-        //
-        // function testGetBrands()
-        // {
-        //     //Arrange
-        //     $store_name = "Shoe Barn";
-        //     $id = null;
-        //     $test_store = new Store($store_name, $id);
-        //     $test_store->save();
-        //
-        //     $brand_name = "Nike";
-        //     $id2 = 2;
-        //     $test_brand2 = new Brand($brand_name, $id2);
-        //     $test_brand2->save();
-        //
-        //     $brand_name2 = "Nike";
-        //     $id3 = 3;
-        //     $test_brand2 = new Brand($brand_name2, $id3);
-        //     $test_brand2->save();
-        //
-        //     //Act
-        //     $test_store->addBrand($test_brand);
-        //     $test_store->addBrand($test_brand2);
-        //
-        //     //Assert
-        //     $this->assertEquals($test_store->getBrands(), [$test_brand, $test_brand2]);
-        // }
-        //
-        // function testDelete() {
-        //     //Arrange
-        //     $store_name = "Shoe Barn";
-        //     $id = null;
-        //     $test_store = new Store($store_name, $id);
-        //     $test_store->save();
-        //
-        //     $brand_name = "Paco";
-        //     $id2 = 2;
-        //     $enrollment_date = "2015-05-11";
-        //     $test_brand = new Brand($brand_name, $id2);
-        //     $test_brand->save();
-        //
-        //     //Act
-        //     $test_store->addBrand($test_brand);
-        //     $test_store->deleteOne();
-        //
-        //     //Assert
-        //     $this->assertEquals([], $test_brand->getStores());
-        // }
+        function testAddBrand()
+        {
+            //Arrange
+            $store_name = "Shoe Barn";
+            $id = null;
+            $test_store = new Store($store_name, $id);
+            $test_store->save();
+
+            $brand_name = "Nike";
+            $id2 = 2;
+            $test_brand = new Brand($brand_name, $id2);
+            $test_brand->save();
+
+            //Act
+            $test_store->addBrand($test_brand);
+            $result = $test_store->getBrands();
+
+            //Assert
+            $this->assertEquals([$test_brand], $result);
+        }
+
+        function testGetBrands()
+        {
+            //Arrange
+            $store_name = "Shoe Barn";
+            $id = null;
+            $test_store = new Store($store_name, $id);
+            $test_store->save();
+
+            $brand_name = "Nike";
+            $id2 = 2;
+            $test_brand = new Brand($brand_name, $id2);
+            $test_brand->save();
+
+            $brand_name2 = "Nike";
+            $id3 = 3;
+            $test_brand2 = new Brand($brand_name2, $id3);
+            $test_brand2->save();
+
+            //Act
+            $test_store->addBrand($test_brand);
+            $test_store->addBrand($test_brand2);
+
+            //Assert
+            $this->assertEquals($test_store->getBrands(), [$test_brand, $test_brand2]);
+        }
+
+        function testDelete() {
+            //Arrange
+            $store_name = "Shoe Barn";
+            $id = null;
+            $test_store = new Store($store_name, $id);
+            $test_store->save();
+
+            $brand_name = "Nike";
+            $id2 = 2;
+            $test_brand = new Brand($brand_name, $id2);
+            $test_brand->save();
+
+            //Act
+            $test_store->addBrand($test_brand);
+            $test_store->deleteOne();
+
+            //Assert
+            $this->assertEquals([], $test_brand->getStores());
+        }
 
     }
 
