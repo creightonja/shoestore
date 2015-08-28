@@ -89,99 +89,99 @@
             $this->assertEquals(true, is_numeric($test_store->getId()));
         }
 
-        // function test_getAll() {
-        //     //Arrange
-        //     $store_name = "Shoe Barn";
-        //     $id = null;
-        //     $test_store = new Store($store_name, $id);
-        //     $test_store->save();
-        //
-        //     $store_name2 = "Bobs Shoes";
-        //     $id2 = 2;
-        //     $test_store2 = new Store ($store_name2, $id2);
-        //     $test_store2->save();
-        //
-        //     //Act
-        //     $result = Store::getAll();
-        //
-        //     //Assert
-        //     $this->assertEquals([$test_store, $test_store2], $result);
-        // }
-        //
-        // function test_deleteAll() {
-        //     //Arrange
-        //     $store_name = "Shoe Barn";
-        //     $id = null;
-        //     $test_store = new Store($store_name, $id);
-        //     $test_store->save();
-        //
-        //     $store_name2 = "Bobs Shoes";
-        //     $id2 = 2;
-        //     $test_store2 = new Store ($store_name2, $id2);
-        //     $test_store2->save();
-        //
-        //     //Act
-        //     Store::deleteAll();
-        //
-        //     //Assert
-        //     $result = Store::getAll();
-        //     $this->assertEquals([], $result);
-        // }
-        //
-        // function test_find() {
-        //     //Arrange
-        //     $store_name = "Shoe Barn";
-        //     $id = null;
-        //     $test_store = new Store($store_name, $id);
-        //     $test_store->save();
-        //
-        //     $store_name2 = "Bobs Shoes";
-        //     $id2 = 2;
-        //     $test_store2 = new Store ($store_name2, $id2);
-        //     $test_store2->save();
-        //
-        //     //Act
-        //     $id = $test_store->getId();
-        //     $result = Store::find($id);
-        //
-        //     //Assert
-        //     $this->assertEquals($test_store, $result);
-        // }
-        //
-        // function testUpdate() {
-        //     //Arrange
-        //     $store_name = "Shoe Barn";
-        //     $id = null;
-        //     $test_store = new Store($store_name, $id);
-        //     $test_store->save();
-        //
-        //     //Act
-        //     $test_store->update($new_store_name);
-        //
-        //     //Assert
-        //     $this->assertEquals($new_store_name, $test_store->getStoreName());
-        // }
-        //
-        // function testDeleteStore() {
-        //     //Arrange
-        //     $store_name = "Shoe Barn";
-        //     $id = 1;
-        //     $store_number = "HST110";
-        //     $test_store = new Store ($store_name, $id, $store_number);
-        //     $test_store->save();
-        //
-        //     $store_name2 = "Bobs Shoes";
-        //     $id2 = 2;
-        //     $test_store2 = new Store ($store_name2, $id2);
-        //     $test_store2->save();
-        //
-        //     //Act
-        //     $test_store->deleteOne();
-        //
-        //     //Assert
-        //     $this->assertEquals([$test_store2], Store::getAll());
-        // }
-        //
+        function test_getAll() {
+            //Arrange
+            $store_name = "Shoe Barn";
+            $id = null;
+            $test_store = new Store($store_name, $id);
+            $test_store->save();
+
+            $store_name2 = "Bobs Shoes";
+            $id2 = 2;
+            $test_store2 = new Store ($store_name2, $id2);
+            $test_store2->save();
+
+            //Act
+            $result = Store::getAll();
+
+            //Assert
+            $this->assertEquals([$test_store, $test_store2], $result);
+        }
+
+        function test_deleteAll() {
+            //Arrange
+            $store_name = "Shoe Barn";
+            $id = null;
+            $test_store = new Store($store_name, $id);
+            $test_store->save();
+
+            $store_name2 = "Bobs Shoes";
+            $id2 = 2;
+            $test_store2 = new Store ($store_name2, $id2);
+            $test_store2->save();
+
+            //Act
+            Store::deleteAll();
+
+            //Assert
+            $result = Store::getAll();
+            $this->assertEquals([], $result);
+        }
+
+        function test_find() {
+            //Arrange
+            $store_name = "Shoe Barn";
+            $id = null;
+            $test_store = new Store($store_name, $id);
+            $test_store->save();
+
+            $store_name2 = "Bobs Shoes";
+            $id2 = 2;
+            $test_store2 = new Store ($store_name2, $id2);
+            $test_store2->save();
+
+            //Act
+            $id = $test_store->getId();
+            $result = Store::find($id);
+
+            //Assert
+            $this->assertEquals($test_store, $result);
+        }
+
+        function testUpdate() {
+            //Arrange
+            $store_name = "Shoe Barn";
+            $id = null;
+            $test_store = new Store($store_name, $id);
+            $test_store->save();
+            $new_store_name = "Bobs Shoes";
+
+            //Act
+            $test_store->update($new_store_name);
+
+            //Assert
+            $this->assertEquals($new_store_name, $test_store->getStoreName());
+        }
+
+        function testDeleteStore() {
+            //Arrange
+            $store_name = "Shoe Barn";
+            $id = 1;
+            $test_store = new Store ($store_name, $id);
+            $test_store->save();
+
+            $store_name2 = "Bobs Shoes";
+            $id2 = 2;
+            $test_store2 = new Store ($store_name2, $id2);
+            $test_store2->save();
+
+            //Act
+            $test_store->deleteOne();
+
+            //Assert
+            $this->assertEquals([$test_store2], Store::getAll());
+        }
+
         // function testAddBrand()
         // {
         //     //Arrange
