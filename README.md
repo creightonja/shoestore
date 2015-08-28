@@ -21,6 +21,20 @@ to find the associated shoes from either category.
 - navigate web browser to localhost:8000
 
 
+## SQL Strings Used
+
+- "INSERT INTO brands (brand_name) VALUES ('{$this->getBrandName()}')"
+- "UPDATE brands SET brand_name = '{$new_brand_name}' WHERE id = {$this->getId()};"
+- "DELETE FROM brands WHERE id = {$this->getId()};"
+- "DELETE FROM shoes_stores WHERE brand_id = {$this->getId()};"
+- "INSERT INTO shoes_stores (brand_id, store_id) VALUES ({$this->getId()}, {$store->getId()});"
+- "SELECT stores.* FROM brands JOIN shoes_stores ON (brands.id = shoes_stores.brand_id)
+             JOIN stores ON (shoes_stores.store_id = stores.id) WHERE brands.id = {$this->getId()};"
+- SELECT * FROM brands;
+- Duplicates for Stores.
+- This assignment did not require a many to many table setup since each unique instance of a brand did not need to be listed multiple times on a store page.  If
+    there were unique brands with multiple shoe styles in stores, then the assignment would call for a many to many relationship.
+
 ## Technologies Used
 
 PHP, phpunit, phpmyadmin, Silex, Twig, HTML, CSS, Boostrap, Symfony, MySQL, Apache
